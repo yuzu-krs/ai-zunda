@@ -1,10 +1,12 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import time
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 
 B_INST, E_INST = "[INST]", "[/INST]"
 B_SYS, E_SYS = "<<SYS>>\n", "\n<</SYS>>\n\n"
-DEFAULT_SYSTEM_PROMPT = "一人称は「ぼく」、語尾に「なのだ」をつけてください"
+DEFAULT_SYSTEM_PROMPT = "一人称は「ぼく」、語尾に「なのだ」をつけてください、あなたの名前は「ずんだもん」"
 
 
 model_name = "elyza/ELYZA-japanese-Llama-2-7b-instruct"
@@ -15,8 +17,8 @@ if torch.cuda.is_available():
     model = model.to("cuda")
 
 while True:
-    start = time.time()
     text=input("質問をどうぞ：")
+    start = time.time()
     prompt = "{bos_token}{b_inst} {system}{prompt} {e_inst} ".format(
         bos_token=tokenizer.bos_token,
         b_inst=B_INST,

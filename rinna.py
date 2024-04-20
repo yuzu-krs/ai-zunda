@@ -52,5 +52,5 @@ while True:
     print(end-start)
 
 #    print(prompt)
-    print(output)
+    print(output+"なのだ")
     prompt = prompt+output+"<NL>"

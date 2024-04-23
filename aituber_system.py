@@ -18,7 +18,7 @@ class AITuberSystem:
         self.llm_adapter=LLMAdapter()
         self.voice_adapter = VoicevoxAdapter()
         self.obs_adapter = OBSAdapter()
-        self.play_sound = PlaySound(output_device_name="DELL S2722QC (NVIDIA High Defin")
+        self.play_sound = PlaySound(output_device_name="CABLE Input (VB-Audio Virtual C")
         pass
 
     def talk_with_comment(self) -> bool:
